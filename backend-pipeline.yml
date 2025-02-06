@@ -1,5 +1,5 @@
 pool:
-  name: 'rollout'
+  name: 'project-pool'
   
 variables:
   version: 'backend_$(Build.BuildId)'
@@ -23,7 +23,7 @@ stages:
     - task: Docker@2
       displayName: 'Build Docker Image'
       inputs:
-        containerRegistry: 'perseverance01'
+        containerRegistry: 'myazureregistry143'
         repository: 'perseverance-project'
         command: 'build'
         Dockerfile: '**/Dockerfile'
@@ -41,7 +41,7 @@ stages:
     - task: Docker@2
       displayName: 'Push Docker Image' 
       inputs:
-        containerRegistry: 'perseverance01'
+        containerRegistry: 'myazureregistry143'
         repository: 'perseverance-project'
         command: 'push'
         tags: |
